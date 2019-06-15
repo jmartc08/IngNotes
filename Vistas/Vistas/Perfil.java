@@ -33,6 +33,7 @@ public class Perfil extends JFrame {
 	private JButton btnBaja = new JButton("ELIMINAR CUENTA");
 
 	public Perfil() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("PERFIL");
 		setSize(400, 320);
 		setLocation(new Point(300, 200));
@@ -40,7 +41,7 @@ public class Perfil extends JFrame {
 		setResizable(false);
 
 		initComponent();
-		initEvent();
+
 	}
 
 	private void initComponent() {
@@ -75,14 +76,5 @@ public class Perfil extends JFrame {
 		getContentPane().add(btnActualizar);
 		getContentPane().add(btnBaja);
 
-	}
-
-	private void initEvent() {
-
-		this.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				dispose();
-			}
-		});
-	}
+		}
 }

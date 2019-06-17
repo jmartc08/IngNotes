@@ -1,3 +1,4 @@
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -5,15 +6,17 @@ import Vistas.Busqueda;
 import Vistas.NuevaAsignatura;
 import Vistas.NuevaCarrera;
 import Vistas.NuevoCurso;
-import Vistas.Perfil;
 import Vistas.Inicio;
 import Vistas.Login;
 
 public class ControladorInicio {
 	private Inicio ventana;
+	private Login login;
+	private Perfil perfil;
 
-	public ControladorInicio(Inicio ventana) {
-		this.ventana = ventana;
+	public ControladorInicio() {
+		this.ventana = new Inicio();
+		ventana.setVisible(true);
 
 		ventana.getMntmNuevaCarrera().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,10 +74,34 @@ public class ControladorInicio {
 
 		ventana.getMntmConfiguracion().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				new Perfil().setVisible(true);
-
+				Perfil perfil = new Perfil();
+				perfil.setVisible(true);
 			}
 		});
+		
+		ventana.getMntmIniciarSesion().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				Login L = new Login();
+				ventana.getEscritorio().add(L);
+				L.show();
+			}
+		});
+
 	}
 
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ControladorInicio controlador = new ControladorInicio();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				// System.out.println("Primero");
+
+			};
+		});
+	}
 }

@@ -15,11 +15,28 @@ import javax.swing.JTextField;
 import java.awt.BorderLayout;
 
 public class NuevaCarrera extends JInternalFrame {
+	
+	
+	static int openFrameCount = 0;
+	
+	static final int xPosition = 30, yPosition = 30;
 
 	private JButton btnAñadir = new JButton("AÑADIR");
 	private JTextField txtNuevaC = new JTextField();
 
 	public NuevaCarrera() {
+		
+		super("IFrame #" + (++openFrameCount), 
+				true, // redimensionable
+				true, // botón cerrar
+				false, // maximizable
+				true);// iconizable
+		
+		setSize(300, 300);
+		// Set the window's location.
+		setLocation(xPosition * openFrameCount, yPosition
+			* openFrameCount);
+
 		setTitle("AÑADIR NUEVA CARRERA");
 		setSize(300, 150);
 		setLocation(new Point(300, 200));

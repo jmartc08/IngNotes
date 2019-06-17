@@ -1,10 +1,15 @@
 package Vistas;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
-public class Login extends JFrame {
+public class Login extends JInternalFrame {
+
+	static int openFrameCount = 0;
+
+	static final int xPosition = 30, yPosition = 30;
 
 	private JButton btnAcceso = new JButton("Acceder");
 	private JTextField txtA = new JTextField();
@@ -13,11 +18,20 @@ public class Login extends JFrame {
 	private JLabel lblClave = new JLabel("CLAVE: ");
 
 	public Login() {
+
+		super("IFrame #" + (++openFrameCount), true, // resizable
+				true, // closable
+				true, // maximizable
+				true);// iconifiable
+
+		// Set the window's location.
+		setLocation(xPosition * openFrameCount, yPosition * openFrameCount);
+
 		setTitle("ING - DOCS");
-		setSize(400, 200);
+		setSize(400, 220);
 		setLocation(new Point(300, 200));
 		getContentPane().setLayout(null);
-		setResizable(false);
+		;
 		initComponent();
 
 	}

@@ -1,31 +1,21 @@
 package Vistas;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import java.awt.Toolkit;
 import javax.swing.JDesktopPane;
 import java.awt.SystemColor;
-import java.awt.FlowLayout;
-import java.awt.MenuBar;
+import java.awt.Color;
 
 public class Inicio extends JFrame {
 	
-	private JFrame frame;
+
 	private JMenuBar menuBar;
 	private JMenu mnInicio;
 	private JMenu mnCarreras;
@@ -40,35 +30,24 @@ public class Inicio extends JFrame {
 	private JMenu mnNewMenu;
 	private JMenuItem mntmCerrarSesion;
 	private JMenuItem mntmConfiguracion;
+	private JPanel contentPane;
 	private JDesktopPane escritorio;
-	JPanel contentPane;
+	private JMenuItem menuItem;
+	private JMenuItem mntmIniciarSesion;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-					try {
-						Inicio window = new Inicio();
-						window.frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-
-				};});
-		}
+	
 		
 
 	public Inicio() {
-		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1200, 750);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
 
-		
-		escritorio = new JDesktopPane();
-		escritorio.setBackground(SystemColor.window);
-		escritorio.setBounds(100, 100, 100, 100);
-		
+		setBounds(100, 100, 1200, 750);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 
 		menuBar = new JMenuBar();
 		mnInicio = new JMenu("INICIO");
@@ -82,11 +61,12 @@ public class Inicio extends JFrame {
 		mntmNuevaAsignatura = new JMenuItem("AÑADIR ASIGNATURAS");
 		mntmVerAsignatura = new JMenuItem("VER ASIGNATURAS");
 		mnNewMenu = new JMenu("PERFIL");
-		mntmCerrarSesion = new JMenuItem("CERRAR SESIÓN");
 		mntmConfiguracion = new JMenuItem("CONFIGURACIÓN");
+		mntmIniciarSesion = new JMenuItem("INICIAR SESIÓN");
+		mntmCerrarSesion = new JMenuItem("CERRAR SESIÓN");
 
 		
-		frame.setJMenuBar(menuBar);
+		setJMenuBar(menuBar);
 		menuBar.add(mnInicio);
 		menuBar.add(mnCarreras);
 		mnCarreras.add(mntmNuevaCarrera);
@@ -98,15 +78,16 @@ public class Inicio extends JFrame {
 		mnASIGNATURAS.add(mntmNuevaAsignatura);
 		mnASIGNATURAS.add(mntmVerAsignatura);
 		menuBar.add(mnNewMenu);
-		mnNewMenu.add(mntmCerrarSesion);
-		mnNewMenu.add(mntmConfiguracion);
 		mnNewMenu.setHorizontalAlignment(SwingConstants.RIGHT);
+		mnNewMenu.add(mntmIniciarSesion);
+		mnNewMenu.add(mntmConfiguracion);
+		mnNewMenu.add(mntmCerrarSesion);
+		
+		escritorio = new JDesktopPane();
+		escritorio.setBackground(Color.BLACK);
+		setContentPane(escritorio);
+		
 
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
-		getContentPane().add(escritorio);
 
 	}
 
@@ -234,4 +215,11 @@ public class Inicio extends JFrame {
 		this.escritorio = escritorio;
 	}
 
+	public JMenuItem getMntmIniciarSesion() {
+		return mntmIniciarSesion;
+	}
+
+	public void setMntmIniciarSesion(JMenuItem mntmIniciarSesion) {
+		this.mntmIniciarSesion = mntmIniciarSesion;
+	}
 }

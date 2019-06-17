@@ -21,151 +21,217 @@ import java.awt.Toolkit;
 import javax.swing.JDesktopPane;
 import java.awt.SystemColor;
 import java.awt.FlowLayout;
+import java.awt.MenuBar;
 
 public class Inicio extends JFrame {
-
-	private JPanel contentPane;
+	
+	private JFrame frame;
+	private JMenuBar menuBar;
+	private JMenu mnInicio;
+	private JMenu mnCarreras;
+	private JMenuItem mntmNuevaCarrera;
+	private JMenuItem mntmVerCarreras;
+	private JMenu mnCursos;
+	private JMenuItem mntmNuevoCurso;
+	private JMenuItem mntmVerCursos;
+	private JMenu mnASIGNATURAS;
+	private JMenuItem mntmNuevaAsignatura;
+	private JMenuItem mntmVerAsignatura;
+	private JMenu mnNewMenu;
+	private JMenuItem mntmCerrarSesion;
+	private JMenuItem mntmConfiguracion;
+	private JDesktopPane escritorio;
+	JPanel contentPane;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					Inicio frame = new Inicio();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-					
-				}
-			}
-		});
-	}
+					try {
+						Inicio window = new Inicio();
+						window.frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
-	/**
-	 * Create the frame.
-	 */
+				};});
+		}
+		
+
 	public Inicio() {
-		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 750);
 		
-		JDesktopPane escritorio =  new JDesktopPane();
+		frame = new JFrame();
+		frame.setBounds(100, 100, 1200, 750);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+
+		
+		escritorio = new JDesktopPane();
 		escritorio.setBackground(SystemColor.window);
-		escritorio.setBounds(100,100,100,100);
-		getContentPane().add(escritorio);
+		escritorio.setBounds(100, 100, 100, 100);
+		
+
+		menuBar = new JMenuBar();
+		mnInicio = new JMenu("INICIO");
+		mnCarreras = new JMenu("CARRERAS");
+		mntmNuevaCarrera = new JMenuItem("AÑADIR CARRERA");
+		mntmVerCarreras = new JMenuItem("VER CARRERAS");
+		mnCursos = new JMenu("CURSOS");
+		mntmNuevoCurso = new JMenuItem("AÑADIR CURSOS");
+		mntmVerCursos = new JMenuItem("VER CURSOS");
+		mnASIGNATURAS = new JMenu("ASIGNATURAS");
+		mntmNuevaAsignatura = new JMenuItem("AÑADIR ASIGNATURAS");
+		mntmVerAsignatura = new JMenuItem("VER ASIGNATURAS");
+		mnNewMenu = new JMenu("PERFIL");
+		mntmCerrarSesion = new JMenuItem("CERRAR SESIÓN");
+		mntmConfiguracion = new JMenuItem("CONFIGURACIÓN");
 
 		
-		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		
-		JMenu mnInicio = new JMenu("INICIO");
+		frame.setJMenuBar(menuBar);
 		menuBar.add(mnInicio);
-		
-		JMenu mnCarreras = new JMenu("CARRERAS");
 		menuBar.add(mnCarreras);
-		
-		JMenuItem mntmNuevaCarrera = new JMenuItem("AÑADIR CARRERA");
-		mntmNuevaCarrera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				NuevaCarrera NC = new NuevaCarrera();
-				escritorio.add(NC);
-				NC.show();
-				
-			}
-		});
-	
 		mnCarreras.add(mntmNuevaCarrera);
-		
-		JMenuItem mntmVerCarreras = new JMenuItem("VER CARRERAS");
-		mntmVerCarreras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Busqueda B = new Busqueda();
-				escritorio.add(B);
-				B.show();
-				
-			}
-		});
-		
 		mnCarreras.add(mntmVerCarreras);
-		
-		JMenu mnCursos = new JMenu("CURSOS");
 		menuBar.add(mnCursos);
-		
-		JMenuItem mntmNuevoCurso = new JMenuItem("AÑADIR CURSOS");
-		mntmNuevoCurso.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				NuevoCurso NCU = new NuevoCurso();
-				escritorio.add(NCU);
-				NCU.show();
-				
-			}
-		});
 		mnCursos.add(mntmNuevoCurso);
-		
-		JMenuItem mntmVerCursos = new JMenuItem("VER CURSOS");
-		mntmVerCursos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Busqueda B = new Busqueda();
-				escritorio.add(B);
-				B.show();
-				
-			}
-		});
 		mnCursos.add(mntmVerCursos);
-		
-		JMenu mnASIGNATURAS = new JMenu("ASIGNATURAS");
 		menuBar.add(mnASIGNATURAS);
-		
-		JMenuItem mntmNuevaAsignatura = new JMenuItem("AÑADIR ASIGNATURAS");
-		mntmNuevaAsignatura.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				NuevaAsignatura NA = new NuevaAsignatura();
-				escritorio.add(NA);
-				NA.show();
-				
-			}
-		});
 		mnASIGNATURAS.add(mntmNuevaAsignatura);
-		
-		
-		JMenuItem mntmVerAsignatura = new JMenuItem("VER ASIGNATURAS");
-		mntmVerAsignatura.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Busqueda B = new Busqueda();
-				escritorio.add(B);
-				B.show();
-				
-			}
-		});
 		mnASIGNATURAS.add(mntmVerAsignatura);
-		
-		JMenu mnNewMenu = new JMenu("PERFIL");
-		mnNewMenu.setHorizontalAlignment(SwingConstants.RIGHT);
 		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmCerrarSesion = new JMenuItem("CERRAR SESIÓN");
 		mnNewMenu.add(mntmCerrarSesion);
-		
-		JMenuItem mntmConfiguracion = new JMenuItem("CONFIGURACIÓN");
 		mnNewMenu.add(mntmConfiguracion);
-		
+		mnNewMenu.setHorizontalAlignment(SwingConstants.RIGHT);
 
-		
-		
-		mntmConfiguracion.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent ev) {
-		    	new Perfil().setVisible(true);
-		
-		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-	
-		
-		    }
-		    
-		});
+		getContentPane().add(escritorio);
+
 	}
+
+	public void setMenuBar(JMenuBar menuBar) {
+		this.menuBar = menuBar;
+	}
+
+	public JMenu getMnInicio() {
+		return mnInicio;
+	}
+
+	public void setMnInicio(JMenu mnInicio) {
+		this.mnInicio = mnInicio;
+	}
+
+	public JMenu getMnCarreras() {
+		return mnCarreras;
+	}
+
+	public void setMnCarreras(JMenu mnCarreras) {
+		this.mnCarreras = mnCarreras;
+	}
+
+	public JMenuItem getMntmNuevaCarrera() {
+		return mntmNuevaCarrera;
+	}
+
+	public void setMntmNuevaCarrera(JMenuItem mntmNuevaCarrera) {
+		this.mntmNuevaCarrera = mntmNuevaCarrera;
+	}
+
+	public JMenuItem getMntmVerCarreras() {
+		return mntmVerCarreras;
+	}
+
+	public void setMntmVerCarreras(JMenuItem mntmVerCarreras) {
+		this.mntmVerCarreras = mntmVerCarreras;
+	}
+
+	public JMenu getMnCursos() {
+		return mnCursos;
+	}
+
+	public void setMnCursos(JMenu mnCursos) {
+		this.mnCursos = mnCursos;
+	}
+
+	public JMenuItem getMntmNuevoCurso() {
+		return mntmNuevoCurso;
+	}
+
+	public void setMntmNuevoCurso(JMenuItem mntmNuevoCurso) {
+		this.mntmNuevoCurso = mntmNuevoCurso;
+	}
+
+	public JMenuItem getMntmVerCursos() {
+		return mntmVerCursos;
+	}
+
+	public void setMntmVerCursos(JMenuItem mntmVerCursos) {
+		this.mntmVerCursos = mntmVerCursos;
+	}
+
+	public JMenu getMnASIGNATURAS() {
+		return mnASIGNATURAS;
+	}
+
+	public void setMnASIGNATURAS(JMenu mnASIGNATURAS) {
+		this.mnASIGNATURAS = mnASIGNATURAS;
+	}
+
+	public JMenuItem getMntmNuevaAsignatura() {
+		return mntmNuevaAsignatura;
+	}
+
+	public void setMntmNuevaAsignatura(JMenuItem mntmNuevaAsignatura) {
+		this.mntmNuevaAsignatura = mntmNuevaAsignatura;
+	}
+
+	public JMenuItem getMntmVerAsignatura() {
+		return mntmVerAsignatura;
+	}
+
+	public void setMntmVerAsignatura(JMenuItem mntmVerAsignatura) {
+		this.mntmVerAsignatura = mntmVerAsignatura;
+	}
+
+	public JMenu getMnNewMenu() {
+		return mnNewMenu;
+	}
+
+	public void setMnNewMenu(JMenu mnNewMenu) {
+		this.mnNewMenu = mnNewMenu;
+	}
+
+	public JMenuItem getMntmCerrarSesion() {
+		return mntmCerrarSesion;
+	}
+
+	public void setMntmCerrarSesion(JMenuItem mntmCerrarSesion) {
+		this.mntmCerrarSesion = mntmCerrarSesion;
+	}
+
+	public JMenuItem getMntmConfiguracion() {
+		return mntmConfiguracion;
+	}
+
+	public void setMntmConfiguracion(JMenuItem mntmConfiguracion) {
+		this.mntmConfiguracion = mntmConfiguracion;
+	}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JDesktopPane getEscritorio() {
+		return escritorio;
+	}
+
+	public void setEscritorio(JDesktopPane escritorio) {
+		this.escritorio = escritorio;
+	}
+
 }

@@ -15,10 +15,8 @@ import javax.swing.JTextField;
 import java.awt.BorderLayout;
 
 public class NuevaCarrera extends JInternalFrame {
-	private JTextField textField;
 
 	private JButton btnAñadir = new JButton("AÑADIR");
-
 	private JTextField txtNuevaC = new JTextField();
 
 	public NuevaCarrera() {
@@ -39,6 +37,22 @@ public class NuevaCarrera extends JInternalFrame {
 		getContentPane().add(btnAñadir);
 		getContentPane().add(txtNuevaC);
 
+	}
+
+	public JButton getBtnAñadir() {
+		return btnAñadir;
+	}
+
+	public void setBtnAñadir(JButton btnAñadir) {
+		this.btnAñadir = btnAñadir;
+	}
+
+	public JTextField getTxtNuevaC() {
+		return txtNuevaC;
+	}
+
+	public void setTxtNuevaC(JTextField txtNuevaC) {
+		this.txtNuevaC = txtNuevaC;
 	}
 
 }

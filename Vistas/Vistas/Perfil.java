@@ -66,15 +66,117 @@ public class Perfil extends JFrame {
 		getContentPane().add(Email);
 		getContentPane().add(Direccion);
 		getContentPane().add(Apuntes);
-
 		getContentPane().add(lblNombre);
 		getContentPane().add(lblClave);
 		getContentPane().add(lblEmail);
 		getContentPane().add(lblDireccion);
 		getContentPane().add(lblApuntes);
-
 		getContentPane().add(btnActualizar);
 		getContentPane().add(btnBaja);
 
 		}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JTextField getNombre() {
+		return Nombre;
+	}
+
+	public void setNombre(JTextField nombre) {
+		Nombre = nombre;
+	}
+
+	public JTextField getClave() {
+		return Clave;
+	}
+
+	public void setClave(JTextField clave) {
+		Clave = clave;
+	}
+
+	public JTextField getEmail() {
+		return Email;
+	}
+
+	public void setEmail(JTextField email) {
+		Email = email;
+	}
+
+	public JTextField getDireccion() {
+		return Direccion;
+	}
+
+	public void setDireccion(JTextField direccion) {
+		Direccion = direccion;
+	}
+
+	public JTextField getApuntes() {
+		return Apuntes;
+	}
+
+	public void setApuntes(JTextField apuntes) {
+		Apuntes = apuntes;
+	}
+
+	public JLabel getLblNombre() {
+		return lblNombre;
+	}
+
+	public void setLblNombre(JLabel lblNombre) {
+		this.lblNombre = lblNombre;
+	}
+
+	public JLabel getLblClave() {
+		return lblClave;
+	}
+
+	public void setLblClave(JLabel lblClave) {
+		this.lblClave = lblClave;
+	}
+
+	public JLabel getLblEmail() {
+		return lblEmail;
+	}
+
+	public void setLblEmail(JLabel lblEmail) {
+		this.lblEmail = lblEmail;
+	}
+
+	public JLabel getLblDireccion() {
+		return lblDireccion;
+	}
+
+	public void setLblDireccion(JLabel lblDireccion) {
+		this.lblDireccion = lblDireccion;
+	}
+
+	public JLabel getLblApuntes() {
+		return lblApuntes;
+	}
+
+	public void setLblApuntes(JLabel lblApuntes) {
+		this.lblApuntes = lblApuntes;
+	}
+
+	public JButton getBtnActualizar() {
+		return btnActualizar;
+	}
+
+	public void setBtnActualizar(JButton btnActualizar) {
+		this.btnActualizar = btnActualizar;
+	}
+
+	public JButton getBtnBaja() {
+		return btnBaja;
+	}
+
+	public void setBtnBaja(JButton btnBaja) {
+		this.btnBaja = btnBaja;
+	}
 }

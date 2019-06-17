@@ -4,62 +4,77 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class Login extends JFrame {
+public class Login extends JFrame {
 
-  private JButton btnAcceso  = new JButton("Acceder");
+	private JButton btnAcceso = new JButton("Acceder");
+	private JTextField txtA = new JTextField();
+	private JTextField txtB = new JTextField();
+	private JLabel lblUsuario = new JLabel("USUARIO: ");
+	private JLabel lblClave = new JLabel("CLAVE: ");
 
-  private JTextField txtA = new JTextField();
-  private JTextField txtB = new JTextField();
+	public Login() {
+		setTitle("ING - DOCS");
+		setSize(400, 200);
+		setLocation(new Point(300, 200));
+		getContentPane().setLayout(null);
+		setResizable(false);
+		initComponent();
 
-  private JLabel lblUsuario = new JLabel("USUARIO: ");
-  private JLabel lblClave = new JLabel("CLAVE: ");
+	}
 
-  public Login(){
-    setTitle("ING - DOCS");
-    setSize(400,200);
-    setLocation(new Point(300,200));
-    getContentPane().setLayout(null);    
-    setResizable(false);
+	private void initComponent() {
 
-    initComponent();    
-    initEvent();    
-  }
+		btnAcceso.setBounds(152, 119, 94, 36);
+		txtA.setBounds(132, 35, 199, 20);
+		txtB.setBounds(132, 81, 199, 20);
+		lblUsuario.setBounds(49, 35, 71, 20);
+		lblClave.setBounds(49, 81, 71, 20);
 
-  private void initComponent(){
-	  btnAcceso.setBounds(152,119, 94,36);
+		getContentPane().add(btnAcceso);
+		getContentPane().add(lblUsuario);
+		getContentPane().add(lblClave);
+		getContentPane().add(txtA);
+		getContentPane().add(txtB);
+	}
 
-    txtA.setBounds(132,35,199,20);
-    txtB.setBounds(132,81,199,20);
+	public JButton getBtnAcceso() {
+		return btnAcceso;
+	}
 
-    lblUsuario.setBounds(49,35,71,20);
-    lblClave.setBounds(49,81,71,20);
+	public void setBtnAcceso(JButton btnAcceso) {
+		this.btnAcceso = btnAcceso;
+	}
 
+	public JTextField getTxtA() {
+		return txtA;
+	}
 
-    getContentPane().add(btnAcceso);
+	public void setTxtA(JTextField txtA) {
+		this.txtA = txtA;
+	}
 
-    getContentPane().add(lblUsuario);
-    getContentPane().add(lblClave);
+	public JTextField getTxtB() {
+		return txtB;
+	}
 
-    getContentPane().add(txtA);
-    getContentPane().add(txtB);
-  }
+	public void setTxtB(JTextField txtB) {
+		this.txtB = txtB;
+	}
 
-  private void initEvent(){
+	public JLabel getLblUsuario() {
+		return lblUsuario;
+	}
 
-    this.addWindowListener(new WindowAdapter() {
-      public void windowClosing(WindowEvent e){
-    	  dispose();;
-      }
-    });
+	public void setLblUsuario(JLabel lblUsuario) {
+		this.lblUsuario = lblUsuario;
+	}
 
-    btnAcceso.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        btnTutupClick(e);
-      }
-    });
-  }
-  
-  private void btnTutupClick(ActionEvent evt){
-	  dispose();
-  }
+	public JLabel getLblClave() {
+		return lblClave;
+	}
+
+	public void setLblClave(JLabel lblClave) {
+		this.lblClave = lblClave;
+	}
+
 }

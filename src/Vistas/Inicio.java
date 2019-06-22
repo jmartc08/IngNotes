@@ -12,17 +12,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JDesktopPane;
 import java.awt.SystemColor;
 import java.awt.Color;
+import javax.swing.JRadioButtonMenuItem;
 
 public class Inicio extends JFrame {
-	
 
 	private JMenuBar menuBar;
 	private JMenu mnInicio;
 	private JMenu mnCarreras;
-	private JMenuItem mntmNuevaCarrera;
 	private JMenuItem mntmVerCarreras;
 	private JMenu mnCursos;
-	private JMenuItem mntmNuevoCurso;
 	private JMenuItem mntmVerCursos;
 	private JMenu mnASIGNATURAS;
 	private JMenuItem mntmNuevaAsignatura;
@@ -34,9 +32,7 @@ public class Inicio extends JFrame {
 	private JDesktopPane escritorio;
 	private JMenuItem menuItem;
 	private JMenuItem mntmIniciarSesion;
-
-	
-		
+	private JMenuItem mntmActualizar;
 
 	public Inicio() {
 
@@ -51,28 +47,33 @@ public class Inicio extends JFrame {
 
 		menuBar = new JMenuBar();
 		mnInicio = new JMenu("INICIO");
+		mnInicio.setEnabled(false);
+		mntmActualizar = new JMenuItem("ACTUALIZAR");
 		mnCarreras = new JMenu("CARRERAS");
-		mntmNuevaCarrera = new JMenuItem("AÑADIR CARRERA");
+		mnCarreras.setEnabled(false);
 		mntmVerCarreras = new JMenuItem("VER CARRERAS");
 		mnCursos = new JMenu("CURSOS");
-		mntmNuevoCurso = new JMenuItem("AÑADIR CURSOS");
+		mnCursos.setEnabled(false);
 		mntmVerCursos = new JMenuItem("VER CURSOS");
 		mnASIGNATURAS = new JMenu("ASIGNATURAS");
+		mnASIGNATURAS.setEnabled(false);
 		mntmNuevaAsignatura = new JMenuItem("AÑADIR ASIGNATURAS");
 		mntmVerAsignatura = new JMenuItem("VER ASIGNATURAS");
-		mnNewMenu = new JMenu("PERFIL");
+		mnNewMenu = new JMenu("CUENTA");
+		mnNewMenu.setEnabled(false);
 		mntmConfiguracion = new JMenuItem("CONFIGURACIÓN");
 		mntmIniciarSesion = new JMenuItem("INICIAR SESIÓN");
 		mntmCerrarSesion = new JMenuItem("CERRAR SESIÓN");
-
 		
+
 		setJMenuBar(menuBar);
 		menuBar.add(mnInicio);
+		
+		
+		mnInicio.add(mntmActualizar);
 		menuBar.add(mnCarreras);
-		mnCarreras.add(mntmNuevaCarrera);
 		mnCarreras.add(mntmVerCarreras);
 		menuBar.add(mnCursos);
-		mnCursos.add(mntmNuevoCurso);
 		mnCursos.add(mntmVerCursos);
 		menuBar.add(mnASIGNATURAS);
 		mnASIGNATURAS.add(mntmNuevaAsignatura);
@@ -82,12 +83,11 @@ public class Inicio extends JFrame {
 		mnNewMenu.add(mntmIniciarSesion);
 		mnNewMenu.add(mntmConfiguracion);
 		mnNewMenu.add(mntmCerrarSesion);
-		
-		escritorio = new JDesktopPane();
-		escritorio.setBackground(Color.BLACK);
-		setContentPane(escritorio);
-		
 
+		escritorio = new JDesktopPane();
+		escritorio.setBackground(SystemColor.window);
+		setContentPane(escritorio);
+		escritorio.setLayout(null);
 
 	}
 
@@ -111,14 +111,6 @@ public class Inicio extends JFrame {
 		this.mnCarreras = mnCarreras;
 	}
 
-	public JMenuItem getMntmNuevaCarrera() {
-		return mntmNuevaCarrera;
-	}
-
-	public void setMntmNuevaCarrera(JMenuItem mntmNuevaCarrera) {
-		this.mntmNuevaCarrera = mntmNuevaCarrera;
-	}
-
 	public JMenuItem getMntmVerCarreras() {
 		return mntmVerCarreras;
 	}
@@ -133,14 +125,6 @@ public class Inicio extends JFrame {
 
 	public void setMnCursos(JMenu mnCursos) {
 		this.mnCursos = mnCursos;
-	}
-
-	public JMenuItem getMntmNuevoCurso() {
-		return mntmNuevoCurso;
-	}
-
-	public void setMntmNuevoCurso(JMenuItem mntmNuevoCurso) {
-		this.mntmNuevoCurso = mntmNuevoCurso;
 	}
 
 	public JMenuItem getMntmVerCursos() {

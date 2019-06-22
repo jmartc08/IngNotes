@@ -12,8 +12,15 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JTable;
 
 public class Busqueda extends JInternalFrame {
+
+	static int openFrameCount = 0;
+
+	static final int xPosition = 30, yPosition = 30;
 
 	private JToolBar toolBar;
 	private JLabel lblSeleccioneUnaCarrera;
@@ -23,13 +30,25 @@ public class Busqueda extends JInternalFrame {
 	private JLabel lblSeleccioneUnaAsignatrua;
 	private JComboBox<String> comboBoxAsignaturas;
 	private JButton btnBuscar;
+	private JTable table;
 
 	public Busqueda() {
+
+		super("IFrame #" + (++openFrameCount), true, // resizable
+				true, // closable
+				true, // maximizable
+				true);// iconifiable
+
+		// Set the window's location.
+		setLocation(xPosition * openFrameCount, yPosition * openFrameCount);
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 700, 500);
 		setTitle("Búsqueda de apuntes");
+		getContentPane().setLayout(null);
 
 		toolBar = new JToolBar();
+		toolBar.setBounds(0, 0, 676, 31);
 		lblSeleccioneUnaCarrera = new JLabel("CARRERAS");
 		comboBoxCarreras = new JComboBox<String>();
 		lblSeleccioneUnCurso = new JLabel("CURSOS");
@@ -38,7 +57,7 @@ public class Busqueda extends JInternalFrame {
 		comboBoxAsignaturas = new JComboBox<String>();
 		btnBuscar = new JButton("BUSCAR");
 
-		getContentPane().add(toolBar, BorderLayout.NORTH);
+		getContentPane().add(toolBar);
 		toolBar.add(lblSeleccioneUnaCarrera);
 		toolBar.add(comboBoxCarreras);
 		toolBar.add(lblSeleccioneUnCurso);
@@ -46,6 +65,14 @@ public class Busqueda extends JInternalFrame {
 		toolBar.add(lblSeleccioneUnaAsignatrua);
 		toolBar.add(comboBoxAsignaturas);
 		toolBar.add(btnBuscar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(10, 33, 660, 415);
+		getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		;
 
 	}
@@ -113,5 +140,4 @@ public class Busqueda extends JInternalFrame {
 	public void setBtnBuscar(JButton btnBuscar) {
 		this.btnBuscar = btnBuscar;
 	}
-
 }

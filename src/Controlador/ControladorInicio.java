@@ -1,3 +1,5 @@
+package Controlador;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,24 +10,19 @@ import Vistas.NuevaCarrera;
 import Vistas.NuevoCurso;
 import Vistas.Inicio;
 import Vistas.Login;
+import Vistas.Perfil;
 
 public class ControladorInicio {
 	private Inicio ventana;
-	private Login login;
+	//private Login login;
 	private Perfil perfil;
+	private ControladorLogin login;
 
 	public ControladorInicio() {
 		this.ventana = new Inicio();
 		ventana.setVisible(true);
 
-		ventana.getMntmNuevaCarrera().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				NuevaCarrera NC = new NuevaCarrera();
-				ventana.getEscritorio().add(NC);
-				NC.show();
 
-			}
-		});
 
 		ventana.getMntmVerCarreras().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -36,14 +33,6 @@ public class ControladorInicio {
 			}
 		});
 
-		ventana.getMntmNuevoCurso().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				NuevoCurso NCU = new NuevoCurso();
-				ventana.getEscritorio().add(NCU);
-				NCU.show();
-
-			}
-		});
 
 		ventana.getMntmVerCursos().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,13 +68,19 @@ public class ControladorInicio {
 			}
 		});
 		
-		ventana.getMntmIniciarSesion().addActionListener(new ActionListener() {
+		/*ventana.getMntmIniciarSesion().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				Login L = new Login();
 				ventana.getEscritorio().add(L);
 				L.show();
 			}
-		});
+		});*/
+		
+		/*Login L = new Login();
+		ventana.getEscritorio().add(L);
+		L.show();*/
+		login = new ControladorLogin(ventana);
+		
 
 	}
 

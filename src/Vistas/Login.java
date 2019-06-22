@@ -16,29 +16,30 @@ public class Login extends JInternalFrame {
 	private JTextField txtB = new JTextField();
 	private JLabel lblUsuario = new JLabel("USUARIO: ");
 	private JLabel lblClave = new JLabel("CLAVE: ");
+	private JLabel registro;
 
 	public Login() {
 
 		super("IFrame #" + (++openFrameCount), true, // resizable
-				true, // closable
-				true, // maximizable
-				true);// iconifiable
+				false, // closable
+				false, // maximizable
+				false);// iconifiable
 
 		// Set the window's location.
-		setLocation(xPosition * openFrameCount, yPosition * openFrameCount);
+		//setLocation(xPosition * openFrameCount, yPosition * openFrameCount);
 
 		setTitle("ING - DOCS");
 		setSize(400, 220);
-		setLocation(new Point(300, 200));
+		setLocation(new Point(400, 200));
 		getContentPane().setLayout(null);
-		;
+		setResizable(false);
 		initComponent();
 
 	}
 
 	private void initComponent() {
 
-		btnAcceso.setBounds(152, 119, 94, 36);
+		btnAcceso.setBounds(237, 112, 94, 36);
 		txtA.setBounds(132, 35, 199, 20);
 		txtB.setBounds(132, 81, 199, 20);
 		lblUsuario.setBounds(49, 35, 71, 20);
@@ -49,6 +50,11 @@ public class Login extends JInternalFrame {
 		getContentPane().add(lblClave);
 		getContentPane().add(txtA);
 		getContentPane().add(txtB);
+		
+		registro = new JLabel("Soy un nuevo usuario");
+		registro.setForeground(new Color(255, 69, 0));
+		registro.setBounds(21, 134, 150, 14);
+		getContentPane().add(registro);
 	}
 
 	public JButton getBtnAcceso() {
@@ -90,5 +96,8 @@ public class Login extends JInternalFrame {
 	public void setLblClave(JLabel lblClave) {
 		this.lblClave = lblClave;
 	}
-
+	
+	public JLabel getRegistro() {
+		return registro;
+	}
 }
